@@ -26,17 +26,32 @@ function ProductCard({
             <View className="mt-5">
                 <Text className="text-sm text-black/60 dark:text-white/70">{category}</Text>
                 <Text className="text-lg font-semibold dark:text-white">{title}</Text>
-                <View>
-                    <AntDesign
-                    name='minuscircleo'
-                    size={24}
-                    color={colorScheme === "dark"? "white": "black"}
-                    onPress={()=>setCount(count - 1)}
+                <View className="flex-row justify-between">
+                    <View className="flex-row gap-4 py-2 items-center">
+                        <AntDesign
+                        name='minuscircleo'
+                        size={24}
+                        color={colorScheme === "dark"? "white": "black"}
+                        onPress={()=>setCount(count - 1)}
 
-                    />
+                        />
+                        <Text className="text-xl dark:text-white">{count} </Text>
+                        <AntDesign
+                        name='pluscircleo'
+                        size={24}
+                        color={colorScheme === "dark"? "white": "black"}
+                        onPress={()=>setCount(count + 1)}
+
+                        />
+                    </View>
+                    <Text className="text-2xl font-extrabold dark:text-white">${price * count} </Text>
                 </View>
-                <Text>{description} </Text>
-                <Text>{price} </Text>
+                <Text
+                numberOfLines={2}
+                 className="text-sm text-black/60 dark:text-white/70">{description} </Text>
+                 <TouchableOpacity className="bg-black dark: bg-white mt-5 rounded-full flex-row justify-center w-10/12 self-center">
+                    <Text className=" dark:text-black py-2 text-center text-lg">Add to Cart</Text>
+                 </TouchableOpacity>
             </View>
         </View>
     );
