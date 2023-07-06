@@ -16,15 +16,28 @@ function ProductCard({
     const { colorScheme } = useColorScheme()
     return (
         <View className="w-full bg-white dark:bg-gray-50/10 rounded-3xl p-5 my-5">
-            <View>
+            <View className="bg-white w-full rounded-xl">
                 <Image
+                resizeMode='contain'
                 source={{uri : image}}
                 className="w-full h-72"
                 />
             </View>
-            <Text>{title}</Text>
-            <Text>{description} </Text>
-            <Text>{price} </Text>
+            <View className="mt-5">
+                <Text className="text-sm text-black/60 dark:text-white/70">{category}</Text>
+                <Text className="text-lg font-semibold dark:text-white">{title}</Text>
+                <View>
+                    <AntDesign
+                    name='minuscircleo'
+                    size={24}
+                    color={colorScheme === "dark"? "white": "black"}
+                    onPress={()=>setCount(count - 1)}
+
+                    />
+                </View>
+                <Text>{description} </Text>
+                <Text>{price} </Text>
+            </View>
         </View>
     );
 }
